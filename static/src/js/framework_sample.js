@@ -1,6 +1,7 @@
 odoo.define("js_framework_sample.SampleFramework", function (require) {
     'use strict';
 
+    var Dialog = require('web.Dialog');
     var Screens = require("point_of_sale.screens");
     var core = require('web.core');
     var _t = core._t;
@@ -12,9 +13,9 @@ odoo.define("js_framework_sample.SampleFramework", function (require) {
             this.$('.pay').click(function(){
                 var order = self.pos.get_order();
                 // Show the order object
-                console.log("order object", order)
+                console.log("order object: ", order)
                 // Show the order subtotal
-                console.log("order subtotal", order.get_subtotal())
+                console.log("order subtotal: ", order.get_subtotal())
 
                 var order_subtotal = order.get_subtotal();
                 var message_body = _t("The subtotal is bellow 5");
@@ -22,6 +23,14 @@ odoo.define("js_framework_sample.SampleFramework", function (require) {
                 if (order_subtotal <= 5){
                     // Show a Javascript simple an Alert Message
                     alert(message_body);
+                    // Show a Dialog Window for an Alert Message
+                    Dialog.alert(
+                        this,
+                        message_body,
+                        {
+                            title: _t("Error: Please Checkout Subtotal of Sale")
+                        }
+                    );
                 }
                 var has_valid_product_lot = _.every(order.orderlines.models, function(line){
                     return line.has_valid_product_lot();
