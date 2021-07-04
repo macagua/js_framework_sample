@@ -8,6 +8,10 @@ Odoo 13 addon from [Odoo Mates](https://www.youtube.com/channel/UCVKlUZP7HAhdQgs
 
 This module is part of [Odoo Javascript tutorials](https://www.youtube.com/c/OdooMates/search?query=odoo%20javascript).
 
+## Tested
+
+- Odoo 13 CE version.
+
 ## Screenshot Addon
 
 ![Screenshot Addon](./static/description/screenshot_00.png "Screenshot Addon")
